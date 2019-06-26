@@ -1,61 +1,67 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../../assets/css/stylesheetSign.css";
+import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
+import Typography from '@material-ui/core/Typography';
 
 const Layout = ({ heading, children, isLogin, isSignup }) => {
   return (
-    <div class="container-fluid">
-      <div class="row" style={{ "margin-bottom": "0px" }}>
-        <div class="col s12 mobImg hide-on-med-and-up">
-          <div class="container">
-            <div class="row">
-              <div
-                class="col s7 offset-s5 right-align"
-                style={{ "margin-top": "8px" }}
-              >
-                {isLogin && (
-                  <Link to="/login" class="myLinks">
-                    LOGIN
+    <Grid container>
+      <Hidden only={['sm', 'md', 'lg', 'xl']}>
+      <Grid item xs={12} className='mobImg' >
+        <Grid container justify="flex-end">
+          <Grid
+            item
+            xs={7}
+            class=""
+            style={{ "margin-top": "8px",paddingRight:"10px" }}
+          >
+            {isLogin && (
+              <Link to="/login" class="myLinks">
+                LOGIN
                   </Link>
-                )}
-                {isSignup && (
-                  <Link to="/" class="myLinks">
-                    SIGNUP
+            )}
+            {isSignup && (
+              <Link to="/" class="myLinks">
+                SIGNUP
                   </Link>
-                )}
-              </div>
+            )}
+          </Grid>
+        </Grid>
+      </Grid>
+      </Hidden>
+      <Grid item md={6} sm={6} xs={12} >
+        <Typography variant='h4' style={{ color: "#080042",textAlign:'center',margin:"30px 0" }}>
+          {heading}
+        </Typography>
+        <Grid container>
+        <Grid item xs={12}>{children}</Grid>
+        </Grid>
+      </Grid>
+      <Hidden only='xs' >
+      <Grid item md={6} sm={6} >
+        <div class="signupContain">
+          <div class="overlay">
+            <div
+              style={{ padding: "10px", textAlign: "right" }}
+            >
+              {isLogin && (
+                <Link to="/login" class="myLinks">
+                  LOGIN
+                  </Link>
+              )}
+              {isSignup && (
+                <Link to="/" class="myLinks">
+                  SIGNUP
+                  </Link>
+              )}
             </div>
           </div>
         </div>
-        <div class="col m6">
-          <h3 class="center-align" style={{ color: "#080042" }}>
-            {heading}
-          </h3>
-          <div class="col s12">{children}</div>
-        </div>
-        <div class="col m6 hide-on-small-only" style={{ padding: "0px" }}>
-          <div class="signupContain">
-            <div class="overlay">
-              <div
-                class="col m4 offset-m8"
-                style={{ padding: "10px", textAlign: "right" }}
-              >
-                {isLogin && (
-                  <Link to="/login" class="myLinks">
-                    LOGIN
-                  </Link>
-                )}
-                {isSignup && (
-                  <Link to="/" class="myLinks">
-                    SIGNUP
-                  </Link>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      </Grid>
+      </Hidden>
+    </Grid>
   );
 };
 

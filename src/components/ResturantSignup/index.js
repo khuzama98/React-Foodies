@@ -1,51 +1,85 @@
 import React, { Component } from "react";
 import Layout from "../Register-Login";
 import { Link } from "react-router-dom";
+import Grid from '@material-ui/core/Grid';
+import Input from '../common/UnderlinedInput'
+import Hidden from '@material-ui/core/Hidden';
+import Button from '../common/Button'
+import UploadButton from '../common/UploadButton'
+import { Typography } from "@material-ui/core";
 
 class index extends Component {
   render() {
     return (
       <Layout heading="RESTURANT SIGNUP" isLogin={true} >
-        <div class="input-field col s12 m5 offset-m1">
-          <input id="name" type="text" class="validate" />
-          <label for="name">Owner Full Name</label>
-        </div>
-        <div class="input-field col s12 m5 ">
-          <input id="rname" type="text" class="validate" />
-          <label for="rname">Resturant Name</label>
-        </div>
-        <div class="input-field col s12 m5 offset-m1">
-          <input id="email" type="text" class="validate" />
-          <label for="email">Email</label>
-        </div>
-        <div class="input-field col s12 m5 ">
-          <input id="password" type="password" class="validate" />
-          <label for="password">Password</label>
-        </div>
-        <div class="input-field col s12 m5 offset-m1">
-          <input id="cpassword" type="password" class="validate" />
-          <label for="cpassword">Confirm Password</label>
-        </div>
-        <div class="input-field col s12 m5 ">
-          <input id="certificate" type="text" class="validate" />
-          <label for="certificate">Certificate</label>
-        </div>
-        <div class="input-field col s12 m5 offset-m1">
-          <input id="city" type="text" class="validate" />
-          <label for="city">City</label>
-        </div>
-        <div class="input-field col s12 m5 ">
-          <input id="country" type="text" class="validate" />
-          <label for="country">Country</label>
-        </div>
-        <div class="row">
-          <div class="col m3  offset-m1">
-            <Link class="waves-effect waves-light btn">SIGNUP</Link>
-          </div>
-          <div class="col offset-m1 m6" style={{ "margin-top": "10px" }}>
-            Want to signup as user? <Link to='/' >Signup</Link>
-          </div>
-        </div>
+        <Grid container style={{ paddingBottom: '20px' }}>
+          <Grid item xs={1} md={1} lg={1} ></Grid>
+          <Grid item xs={10} md={5} lg={5}>
+            <Input label='Owner Full Name' type='text' />
+          </Grid>
+          <Hidden only={['md', 'lg']}>
+            <Grid item xs={1} md={1} lg={1} ></Grid>
+          </Hidden>
+          <Hidden only={['md', 'lg']}>
+            <Grid item xs={1} md={1} lg={1} ></Grid>
+          </Hidden>
+          <Grid item xs={10} md={5} lg={5} >
+            <Input label='Resturant Name' type='text' />
+          </Grid>
+          <Grid item xs={1} md={1} lg={1} ></Grid>
+          <Grid item xs={1} md={1} lg={1} ></Grid>
+          <Grid item xs={10} md={5} lg={5} >
+            <Input label='Email' type='text' />
+          </Grid>
+          <Hidden only={['md', 'lg']}>
+            <Grid item xs={1} md={1} lg={1} ></Grid>
+          </Hidden>
+          <Hidden only={['md', 'lg']}>
+            <Grid item xs={1} md={1} lg={1} ></Grid>
+          </Hidden>
+          <Grid item xs={10} md={5} lg={5} >
+            <Input label='Password' type='password' />
+          </Grid>
+          <Grid item xs={1} md={1} lg={1} ></Grid>
+          <Grid item xs={1} md={1} lg={1} ></Grid>
+          <Grid item xs={10} md={5} lg={5} >
+            <Input label='Confirm Password' type='password' />
+          </Grid>
+          <Hidden only={['md', 'lg']}>
+            <Grid item xs={1} md={1} lg={1} ></Grid>
+          </Hidden>
+          <Hidden only={['md', 'lg']}>
+            <Grid item xs={1} md={1} lg={1} ></Grid>
+          </Hidden>
+          <Grid item xs={10} md={5} lg={5} >
+            <Input label='City' type='text' />
+          </Grid>
+          <Grid item xs={1} md={1} lg={1} ></Grid>
+          <Grid item xs={1} md={1} lg={1} ></Grid>
+          <Grid item xs={10} md={10} lg={10} >
+            <Input label='Country' type='text' />
+          </Grid>
+          <Hidden only={['md', 'lg']}>
+            <Grid item xs={1} md={1} lg={1} ></Grid>
+          </Hidden>
+          <Hidden only={['md', 'lg']}>
+            <Grid item xs={1} md={1} lg={1} ></Grid>
+          </Hidden>
+          <Grid md={12} lg={12} ></Grid>
+          <Grid md={1} lg={1} ></Grid>
+          <Grid item xs={10} md={5} lg={5} >
+            <UploadButton label='Upload Certificate' />
+          </Grid>
+          <Grid container item style={{ marginTop: '12px' }} >
+            <Grid item xs={1} md={1} lg={1} ></Grid>
+            <Grid item md={3} lg={3} >
+              <Button label='Signup' />
+            </Grid>
+            <Grid item md={6} lg={6} style={{ "margin-top": "20px" }}>
+              <Typography variant='subtitle2' > Want to signup as user? <Link to='/' >Signup</Link></Typography>
+            </Grid>
+          </Grid>
+        </Grid>
       </Layout>
     );
   }

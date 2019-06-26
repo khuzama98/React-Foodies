@@ -4,6 +4,7 @@
 }
 .signupContain{
     min-height: 100vh;
+    height: 100%;
     width: 100%;
     background-image: url('../images/signupBanner.jpeg');
     background-position: center;
@@ -14,7 +15,8 @@
 .overlay{
     min-height: 100vh;
     width: 100%;
-    padding-bottom: 15px;
+    height: 100%;
+    /* padding-bottom: 15px; */
     background-image: linear-gradient(transparent,rgba(0, 0, 0, 0.507));
 }
 .signupForm{
@@ -29,6 +31,7 @@
     padding: 8px 15px;
     display: inline-block;
     border-radius: 8px; 
+    text-decoration: none;
 }
 #test1,#test2{
     margin-top: 30px;
@@ -248,6 +251,17 @@ ul a{
     bottom: 3px;
 }
 
+.focusColor:focus{
+    background-color: rgba(0, 0, 0, 0.08)
+}
+.backImg{
+    background-image: url('../images/wix-1.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 520px
+}
+
 .marginbtm{
     margin-bottom: 20px;
 }
@@ -268,6 +282,12 @@ ul a{
 .radiomargin{
     margin-right: 13px;
 }
+.hideOnMedAndUp{
+    display: block;
+}
+.hideOnSmall{
+    display: block;
+}
 
 
 @media screen and (max-width:768px){
@@ -286,5 +306,16 @@ ul a{
 @media screen and (max-width:360px){
     .headFont{
         font-size: 1rem;
+    }
+}
+
+@media screen and (min-width:601px){
+    .hideOnMedAndUp{
+        display: none;
+    }
+}
+@media screen and (max-width:600px){
+    .hideOnSmall{
+        display: none;
     }
 }

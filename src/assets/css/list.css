@@ -1,0 +1,136 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.logo-container {
+    background: white;
+    padding: 0px;
+    margin-bottom: 30px;
+}
+
+.logo-inside-container {
+    width: 1016px;
+    margin: 0 auto;
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+@media(max-width:1040px){
+    .logo-inside-container{
+        flex-direction: column;
+        width: 120px;
+        margin: 0 auto;
+    }
+}
+.logo-container p {
+    text-align: center !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    color: #161616;
+    font-weight: 600;
+    font-size: 16px !important;
+    margin-top: 20px !important;
+}
+
+.logos {
+    width: 120px;
+    height: 100px !important;
+    margin: 0 auto;
+}
+
+.logos img {
+    width: 120px;
+}
+
+.extra-pad {
+    padding-top: 40px;
+    width: 187px;
+    /* background-color: red; */
+    display: inline-block;
+    /* height: 100%; */
+}
+
+.extra-pad:hover {
+    /* background: #003366; */
+    transition: ease, 0.3s;
+    color: white;
+}
+
+.extra-pad:hover p {
+    color: white;
+    transition: ease 0.3s;
+    cursor: pointer;
+}
+
+.logo-image {
+    width: 84px;
+}
+
+/* .extra-pad:hover .logo-image{
+     fill: #F7F7F7 !important;
+ } */
+
+.first {
+    background-image: url('../images/svg/1.svg');
+    background-repeat: no-repeat;
+}
+
+.extra-pad:hover .first {
+    background-image: url('../images/svg/01.svg');
+    transition: ease 0.3s;
+}
+
+.second {
+    background-image: url('../images/svg/2.svg');
+    background-repeat: no-repeat;
+}
+
+.extra-pad:hover .second {
+    transition: ease 0.3s;
+    background-image: url('../images/svg/02.svg');
+}
+
+.third {
+    background-image: url('../images/svg/3.svg');
+    background-repeat: no-repeat;
+}
+
+.extra-pad:hover .third {
+    transition: ease 0.3s;
+    background-image: url('../images/svg/03.svg');
+}
+
+.fourth {
+    background-image: url('../images/svg/4.svg');
+    background-repeat: no-repeat;
+}
+
+.extra-pad:hover .fourth {
+    transition: ease 0.3s;
+    background-image: url('../images/svg/04.svg');
+}
+.fifth {
+    background-image: url('../images/svg/5.svg');
+    background-repeat: no-repeat;
+}
+
+.extra-pad:hover .fifth {
+    transition: ease 0.3s;
+    background-image: url('../images/svg/05.svg');
+}
+.sixth {
+    width: 60px;
+    height: 60px;
+    background-image: url('../images/svg/6.svg');
+    background-repeat: no-repeat;
+    
+}
+.smaller{
+    width: 80px;
+}
+
+.extra-pad:hover .sixth {
+    transition: ease 0.3s;
+    background-image: url('../images/svg/06.svg');
+}

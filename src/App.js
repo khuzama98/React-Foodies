@@ -1,13 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import M from "materialize-css";
-import "materialize-css/dist/css/materialize.min.css";
+// import M from "materialize-css";
+// import "materialize-css/dist/css/materialize.min.css";
 import routes from "./routes";
+import './assets/css/list.css'
 
 class App extends React.Component {
-  componentDidMount() {
-    M.AutoInit();
-  }
+  // componentDidMount() {
+  //   M.AutoInit();
+  // }
 
   render() {
     return (
