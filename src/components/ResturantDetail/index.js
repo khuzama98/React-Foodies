@@ -41,7 +41,7 @@ class index extends Component {
     static getDerivedStateFromProps(props,state){
         // console.log('state',state)
         console.log('props',props)
-        if(props.menu.length!==state.menu.length){
+        if(props.menu!==null){
             return{
                 menu: props.menu
             }
@@ -159,14 +159,14 @@ class index extends Component {
                                 null
                             }
                         </Grid>
-                        {
-                            menu.map(items => {
+                        { this.state.menu.length!==0 ?
+                            this.state.menu.map(items => {
                                 return (
                                     <Grid item xs={10} sm={5} md={3} lg={3} style={{ padding: '20px 0px 0px 20px' }} >
                                         <Card type={this.props.user.type} onClick={this.RequestItem} data={items} />
                                     </Grid>
                                 )
-                            })
+                            }) : <Typography style={{padding:20}} variant='body1'>No Items</Typography>
                         }
 
                     </Grid>

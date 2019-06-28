@@ -22,7 +22,7 @@ class index extends Component {
     static getDerivedStateFromProps(props, state) {
         // console.log('state',state)
         console.log('props', props)
-        // if (props.orders.length !== state.orders.length) {
+        if (props.orders!==null) {
             const pending = props.orders.filter(item=> item.status==='pending')
             const inprogress = props.orders.filter(item=> item.status==='inprogress')
             const delivered = props.orders.filter(item => item.status ==='delivered')
@@ -32,7 +32,7 @@ class index extends Component {
                 inprogress,
                 delivered
             }
-        // }
+        }
     }
 
     componentDidMount(){
