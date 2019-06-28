@@ -6,11 +6,16 @@ import Resturants from './AllResturants'
 import { connect } from 'react-redux';
 
 class index extends Component {
+
+    onClick = () => {
+        this.props.history.push('/resturants')
+    }
+
     render() {
         return (
             <div>
                 <Navbar type={this.props.user.type} />
-                <Discover />
+                <Discover onClick={this.onClick} />
                 <Resturants />
                 <Footer />
             </div>
