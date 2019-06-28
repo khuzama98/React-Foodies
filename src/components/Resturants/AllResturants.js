@@ -1,71 +1,50 @@
 import React, { Component } from 'react';
 import { Grid, Typography } from '@material-ui/core';
-import img1 from '../../assets/images/mini-1.jpg'
-import img2 from '../../assets/images/mini-2.jpg'
-import img3 from '../../assets/images/mini-3.jpg'
-import Card from '../common/Card'
+import Card from '../common/ResturantCard'
+import {getResturants} from '../../config/firebase'
+import {withRouter} from 'react-router-dom'
 
 class AllResturants extends Component {
     constructor(){
         super();
         this.state={
-            data:[
-                {
-                    image: img1,
-                    name: 'Burger Lab',
-                    category: 'Fast Food',
-                    location: 'North Nazimabad',
-                    rating : 4
-                },
-                {
-                    image : img2,
-                    name: 'Ginsoy',
-                    category: 'Chinese',
-                    location: 'Gulshan-e-Iqbal',
-                    rating: 4.6
-                },
-                {
-                    image: img3,
-                    name: 'BBQ Tonight',
-                    category: 'Desi',
-                    location: 'Clifton',
-                    rating: 4.4
-                },
-                {
-                    image: img1,
-                    name: 'Burger Lab',
-                    category: 'Fast Food',
-                    location: 'North Nazimabad',
-                    rating: 4
-                },
-                {
-                    image: img2,
-                    name: 'Ginsoy',
-                    category: 'Chinese',
-                    location: 'Gulshan-e-Iqbal',
-                    rating: 4.6
-                },
-                {
-                    image: img3,
-                    name: 'BBQ Tonight',
-                    category: 'Desi',
-                    location: 'Clifton',
-                    rating: 4.4
-                }
-            ]
+            result:[]
         }
     }
 
+    componentDidMount(){
+        this.onLoadResturants()
+    }
+
+    onLoadResturants = async () => {
+        try{
+            let res = await getResturants()
+            .then((result)=>{
+                console.log(result)
+                this.setState({result})
+            })
+        }
+        catch(e){
+            console.log(e)
+        }
+    }
+
+    redirectToResturant = (uid) => {
+        console.log(uid)
+        console.log(this.props)
+        this.props.history.push(`/resturants-details/${uid}`)
+    }
+
     render() {
-        const {data} = this.state
+        const {data,result} = this.state
         return (
             <div style={{padding:'30px'}} >
                 <Typography variant='h4' >Resturants</Typography>
                 <Grid container >
-                    { data.map(item=>{
+                    { result.map(item=>{
                         return(
-                            <Grid item xs={10} sm={5} md={3} lg={3} style={{padding:'20px 0px 0px 20px'}} >
-                                <Card data={item} />
+                            <Grid item xs={10} sm={5} md={3} lg={3} onClick={() => this.redirectToResturant(item.uid)} style={{padding:'20px 0px 0px 20px'}} >
+                                <Card data={item}  />
                             </Grid>
                         )
                     })
@@ -76,4 +55,4 @@ class AllResturants extends Component {
     }
 }
 
-export default AllResturants;
+export default withRouter(AllResturants);

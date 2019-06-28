@@ -11,7 +11,7 @@ class DiscoverPlaces extends Component {
                         <Typography align='center' variant='h4' >Discover Places Near You!</Typography>
                     </Grid>
                     <Grid item xs={12} sm={12} md={12} lg={12} >
-                        <Search />
+                        <Search onClick={this.props.onClick} />
                     </Grid>
                 </Grid>
             </div>

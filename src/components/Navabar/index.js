@@ -8,8 +8,12 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Drawer from './Drawer'
+import { connect } from 'react-redux';
+import { logout } from '../../config/store/action'
+import swal from 'sweetalert'
+import { withRouter } from "react-router";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = (theme => ({
     root: {
         flexGrow: 1
     },
@@ -39,8 +43,8 @@ const RequestLink = React.forwardRef((props, ref) => (
     <Link innerRef={ref} to="/request" {...props} />
 ));
 
-const LogoutLink = React.forwardRef((props, ref) => (
-    <Link innerRef={ref} to="/" {...props} />
+const ProgressLink = React.forwardRef((props, ref) => (
+    <Link innerRef={ref} to="/orders" {...props} />
 ));
 
 
@@ -68,16 +72,20 @@ class ButtonAppBar extends React.Component {
         window.removeEventListener('resize', this._resize_mixin_callback);
     }
 
+    redirectToLogin = () => {
+        this.props.history.push('/login')
+    }
+
     render() {
         const {classes} = this.props
-        console.log(this.props)
+        console.log('navbar ===>',this.props)
         const { width } = this.state
         return (
             <ThemeProvider theme={theme}>
                 <div className={classes.root}>
                     <AppBar position="static">
                         <Toolbar>
-                            {width < 600 ? <Drawer /> : false}
+                            {width < 600 ? <Drawer type={this.props.type} /> : false}
                             <Typography variant="h6" style={{ flexGrow: 1 }}>
                                 FOODIES
                             </Typography>
@@ -85,8 +93,11 @@ class ButtonAppBar extends React.Component {
                                 <>
                                     <Button className='focusColor' component={HomeLink} color="inherit">Home</Button>
                                     <Button className='focusColor' component={ResturantLink} color="inherit">Resturants</Button>
-                                    <Button className='focusColor' component={RequestLink} color="inherit">My Requests</Button>
-                                    <Button className='focusColor' component={LogoutLink} color="inherit">Logout</Button>
+                                    {
+                                        this.props.type==='user' ? <Button className='focusColor' component={RequestLink} color="inherit">My Requests</Button> :
+                                        <Button className='focusColor' component={ProgressLink} color="inherit">Orders</Button>
+                                    }
+                                    <Button className='focusColor' onClick={()=>this.props.remove_user(this.redirectToLogin)} color="inherit">Logout</Button>
 
                                 </>
                             )
@@ -100,4 +111,10 @@ class ButtonAppBar extends React.Component {
 
 }
 
-export default withStyles(useStyles)(ButtonAppBar)
+const mapDispatchToProps = (dispatch) => {
+    return{
+        remove_user: (redirect) => dispatch(logout(redirect))
+    }
+}
+
+export default connect(null,mapDispatchToProps)(withRouter(withStyles(useStyles)(ButtonAppBar)))

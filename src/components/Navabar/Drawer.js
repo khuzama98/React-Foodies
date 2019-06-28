@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme=>({
     }
 }));
 
-const routes = [
+const routesUser = [
     {
         name: 'Home',
         route: '/home'
@@ -44,11 +44,31 @@ const routes = [
     }
 ]
 
-export default function TemporaryDrawer() {
+const routesResturant = [
+    {
+        name: 'Home',
+        route: '/home'
+    },
+    {
+        name: 'Resturants',
+        route: '/resturants'
+    },
+    {
+        name: 'Orders',
+        route: '/orders'
+    },
+    {
+        name: 'Logout',
+        route: '/'
+    }
+]
+
+export default function TemporaryDrawer(props) {
     const classes = useStyles();
     const [state, setState] = React.useState({
         left: false,
     });
+    const routes = props.type==='user' ? routesUser : routesResturant
 
     const toggleDrawer = (side, open) => event => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {

@@ -23,7 +23,7 @@ class CustomButton extends Component {
         return (
             <div>
                 <MuiThemeProvider theme={theme}>
-                    <Button variant="contained" size={this.props.size} color='primary' className={classes.button}>
+                    <Button variant="contained" size={this.props.size} onClick={()=>this.props.onClick()} color='primary' className={classes.button}>
                         {this.props.label}
                     </Button>
                 </MuiThemeProvider>

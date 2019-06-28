@@ -43,7 +43,7 @@ class underlineDropdown extends Component {
                         >
                             {this.props.options.map((item, index) => {
                                 return (
-                                    index === 0 ? <MenuItem disabled>{item}</MenuItem> : <MenuItem value={item} >{item}</MenuItem>
+                                    index === 0 ? <MenuItem disabled value=''>{item}</MenuItem> : <MenuItem value={item} >{item}</MenuItem>
                                 )
                             })}
                         </Select>

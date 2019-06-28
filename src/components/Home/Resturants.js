@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Typography } from '@material-ui/core';
+import {withRouter} from 'react-router-dom'
 
 class Resturants extends Component {
     render() {
@@ -28,7 +29,7 @@ class Resturants extends Component {
                             <div className="logos fifth">
                             </div>
                         </div>
-                        <div className=" extra-pad smaller">
+                        <div className=" extra-pad smaller" onClick={()=>this.props.history.push('/resturants')} >
                             <div style={{height:"30px"}} className="space">
 
                             </div>
@@ -42,4 +43,4 @@ class Resturants extends Component {
     }
 }
 
-export default Resturants;
+export default withRouter(Resturants);

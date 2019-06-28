@@ -18,13 +18,13 @@ const theme = createMuiTheme({
     },
 });
 
-class CustomButton extends Component {
+class CustomSearchButton extends Component {
     render() {
         const { classes } = this.props
         return (
             <div>
                 <MuiThemeProvider theme={theme}>
-                    <Button variant="contained" size={this.props.size} color='primary' className={classes.button}>
+                    <Button variant="contained" size={this.props.size} onClick={()=>this.props.onClick()} color='primary' className={classes.button}>
                         {this.props.label}
                     </Button>
                 </MuiThemeProvider>
@@ -33,8 +33,8 @@ class CustomButton extends Component {
     }
 }
 
-CustomButton.defaultProps = {
+CustomSearchButton.defaultProps = {
     size:"medium"
 }
 
-export default withStyles(styles)(CustomButton);
+export default withStyles(styles)(CustomSearchButton);

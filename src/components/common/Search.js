@@ -20,7 +20,7 @@ class Search extends Component {
                             <img src={searchicon} height='25px' style={position} />
                         </Grid>
                         <Grid item sm={2}>
-                            <Button label='Search' size='large' />
+                            <Button label='Search' size='large' onClick={this.props.onClick} />
                         </Grid>
                     </Grid>
                 </Grid>

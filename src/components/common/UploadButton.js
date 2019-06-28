@@ -32,6 +32,8 @@ class uploadButton extends Component {
                     id="contained-button-file"
                     multiple
                     type="file"
+                    name={this.props.name}
+                    onChange={(e)=>this.props.onChange(e)}
                 />
                 <MuiThemeProvider theme={theme}>
                     <label htmlFor="contained-button-file">

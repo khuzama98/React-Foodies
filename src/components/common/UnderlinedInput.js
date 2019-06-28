@@ -31,9 +31,12 @@ class UnderlinedInput extends Component {
                     <TextField
                         type={this.props.type}
                         id="standard-full-width"
+                        name={this.props.name}
                         label={this.props.label}
                         style={{ margin: 8 }}
+                        value={this.props.value}
                         placeholder={this.props.placeholder}
+                        onChange={(e)=>this.props.onChange(e)}
                         fullWidth
                         margin="normal"
                     />
